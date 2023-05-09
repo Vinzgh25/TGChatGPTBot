@@ -1,3 +1,4 @@
+# Import necessary libraries
 import telebot
 import requests
 import sqlite3
@@ -7,8 +8,14 @@ import os
 # Get Telegram bot token from environment variable
 TELEGRAM_BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN")
 
+if not TELEGRAM_BOT_TOKEN:
+  raise RuntimeError("Specify TELEGRAM_BOT_TOKEN in the OS environment")
+
 # Get OpenAI API key from environment variable
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+
+if not OPENAI_API_KEY:
+  raise RuntimeError("Specify OPENAI_API_KEY in the OS environment")
 
 # Error message to display when something goes wrong
 ERROR_MESSAGE = "Oops, something went wrong! Please try again later."
